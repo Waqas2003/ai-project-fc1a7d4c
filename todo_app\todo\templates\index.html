@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Todos</h1>
+  <ul>
+    {% for todo in todos %}
+      <li>
+        {{ todo.title }} ({{ todo.completed }})
+        <a href="{% url 'update_todo' todo.id %}">Update</a>
+        <a href="{% url 'delete_todo' todo.id %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_todo' %}">Create Todo</a>
+{% endblock %}
